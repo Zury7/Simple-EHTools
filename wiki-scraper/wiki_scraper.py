@@ -59,10 +59,10 @@ def save_to_file(title, data):
     
     print(f"Body content successfully saved to {filename}")
 
-
-# main
 # Example: Scrape the "Python (programming language)" Wikipedia page
-wiki_url = "https://en.wikipedia.org/wiki/Python_(programming_language)"
+# wiki_url = "https://en.wikipedia.org/wiki/Python_(programming_language)"
+# wiki_url = "https://en.wikipedia.org/wiki/Mahinda_(Buddhist_monk)"
+wiki_url = "https://en.wikipedia.org/wiki/Miss_World"
 page_title, body_content = get_wikipedia_body_content(wiki_url)
 
 # Save results to a text file
