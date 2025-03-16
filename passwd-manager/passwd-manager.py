@@ -117,6 +117,10 @@ def delete_credentials(service):
     conn.close()
     print("Credential deleted successfully!")
 
+def save_generated_password(service, username, password, master_password):
+    key = derive_key(master_password)
+    add_credentials(service, username, password, key)
+
 # Main logic
 def main():
     init_db()
