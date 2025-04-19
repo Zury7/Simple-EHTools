@@ -1,0 +1,58 @@
+# To discover hosts and services on a computer network, including port scanning.
+
+# Scan a single host 
+nmap 192.168.1.1
+# Scan a range of IPs
+nmap 192.168.1.1-100
+# Service version detection
+nmap -sV 192.168.1.1
+# OS detection
+nmap -O 192.168.1.1
+# Scan a list of hosts from a file
+nmap -iL hosts.txt
+# Scan specific ports
+nmap -p 22,80 192.168.1.1
+# Scan all ports 
+nmap -p- 192.168.1.1
+# Scan a specific port range 
+nmap -p 1-500 192.168.1.1
+# Stealth mode scan 
+nmap -sS 192.168.1.1
+# UDP scan 
+nmap -sU 192.168.1.1
+# Aggressive scan 
+nmap -A 192.168.1.1
+# Script scan
+nmap -sC 192.168.1.1
+# Specific script scan
+nmap --script=ssl-heartbleed 192.168.1.1
+# Check for ssl/tls vulns
+nmap --script=ssl-enum-ciphers -p 443 192.168.1.1
+# DNS zone transfer to detect dns info
+nmap --script=dns-zone-transfer -p 53 192.168.1.1
+# exclude option 
+nmap --exclude 192.168.1.10 192.168.1.1-50
+# Advanced OS detection
+nmap -O --osscan-guess 192.168.1.1
+# Reverse dns lookups 
+nmap -R 192.168.1.1
+# Scan for specific services 
+nmap -p 80,443,22 192.168.1.1
+# Scan with specific interface 
+nmap -e eth0 192.168.1.1
+# Run traceroute along woth a scan 
+nmap --traceroute 192.168.1.1
+# Scan with an added custom delay
+nmap --scan-delay 1s -p 80 192.168.1.1
+# Evasion option: fragment packets 
+nmap -f 192.168.1.1
+# Evasion option: Mask the origin
+nmap -D RND:10 192.168.1.1
+# Scan speed changing
+nmap -T4 -p 1-65535 192.168.1.1
+# Generating scan outputs 
+nmap -oX output.xml 192.168.1.1
+nmap -oJ output.json 192.168.1.1
+
+
+
