@@ -1,0 +1,77 @@
+# Start Recon-ng framework
+recon-ng
+
+# Add a new workspace for organizing the project
+workspaces add example_project
+
+# List all workspaces
+workspaces list
+
+# Load a module
+modules load recon/domains-hosts/bing_domain_web
+
+# Show options for the loaded module
+show options
+
+# Set a value for an option (e.g., setting the domain target)
+set SOURCE example.com
+
+# Run the currently loaded module
+run
+
+# Search for modules related to a keyword (e.g., 'domains')
+modules search domains
+
+# List all available modules
+modules search
+
+# View all database tables
+show schema
+
+# View contents of a database table (like hosts)
+show hosts
+
+# Add a domain manually to the database
+add domains example.com
+
+# Delete a workspace
+workspaces delete example_project
+
+# Import targets from a file
+db import /path/to/targets.txt
+
+# Export database information to CSV
+db export /path/to/output.csv
+
+# List all available marketplace modules
+marketplace search
+
+# Install a marketplace module
+marketplace install <module_name>
+
+# Reload a module if it changes
+modules reload
+
+# Update Recon-ng to the latest version
+recon-ng --update
+
+# Exit Recon-ng framework
+exit
+
+# Set the API key for a module that requires it (e.g., Shodan)
+set API_KEY <your_api_key>
+
+# Show the module documentation
+show info
+
+# View the results from a specific module's run
+show results
+
+# View the captured IP addresses
+show ip
+
+# Clear the database (for cleanup purposes)
+db delete all
+
+# Check for missing options before running a module
+check options

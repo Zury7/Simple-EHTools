@@ -1,0 +1,89 @@
+# Basic passive and active enumeration
+amass enum -d example.com
+
+# Passive-only enumeration
+amass enum -passive -d example.com
+
+# Brute-force subdomains
+amass enum -brute -d example.com
+
+# Force active enumeration
+amass enum -active -d example.com
+
+# Show data sources for discoveries
+amass enum -d example.com -src
+
+# Save output to a file
+amass enum -o output.txt -d example.com
+
+# Scan specific ports
+amass enum -d example.com -p 443,80
+
+# Output only IPv4 addresses
+amass enum -d example.com -ipv4
+
+# Output only IPv6 addresses
+amass enum -d example.com -ipv6
+
+# Include WHOIS lookups
+amass enum -d example.com -whois
+
+# Set minimum findings for recursive lookups
+amass enum -d example.com -min-for-recursive 2
+
+# Use a specific DNS resolver
+amass enum -r 8.8.8.8 -d example.com
+
+# Skip alternate names discovery
+amass enum -d example.com -noalts
+
+# Enumerate multiple domains from a file
+amass enum -f domains.txt
+
+# Use a custom config file
+amass enum -d example.com -config config.ini
+
+# Gather intelligence about a domain
+amass intel -d example.com
+
+# Find domains owned by a specific ASN
+amass intel -asn 13335
+
+# View discovered information from local database
+amass db -d example.com -show
+
+# Track changes in domain infrastructure
+amass track -d example.com
+
+# Create D3.js visualization of enumeration results
+amass viz -d3 -dir /path/to/dir/
+
+# Set a timeout for DNS queries
+amass enum -d example.com -timeout 10
+
+# Limit the number of DNS queries
+amass enum -d example.com -max-dns-queries 10000
+
+# Save detailed logs to a file
+amass enum -d example.com -log log.txt
+
+# Use only public DNS resolvers
+amass enum -d example.com -public-dns
+
+# Blacklist specific subdomains
+amass enum -d example.com -blacklist blacklisted.txt
+
+# Read domains from a file for enumeration
+amass enum -d example.com -df domains.txt
+
+# Include only specific scope domains/subdomains
+amass enum -d example.com -include-scope
+
+# Exclude patterns during discovery
+amass enum -d example.com -excludefilter excluded.txt
+
+# Output results as a Graphviz .dot file
+amass viz -dot -dir /path/to/dir/ -o graph.dot
+
+# Output results in JSON format
+amass viz -json -dir /path/to/dir/ -o graph.json

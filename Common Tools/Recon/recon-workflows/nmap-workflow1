@@ -1,0 +1,18 @@
+-------------------------------
+Network and service discovery 
+-------------------------------
+
+# 1. Host Discovery (find live hosts without full port scan)
+nmap -sn 192.168.1.0/24 -oG live-hosts.txt
+
+# 2. Quick Top Ports Scan (against all live hosts)
+nmap -iL live-hosts.txt --top-ports 100 -oN top-ports-scan.txt
+
+# 3. Full TCP Port Scan (only if necessary)
+nmap -iL live-hosts.txt -p- -T4 -oN full-tcp-scan.txt
+
+# 4. Service Version and OS Detection
+nmap -iL live-hosts.txt -sV -O -oN service-os-scan.txt
+
+# 5. Run Vulnerability Scripts (NSE scripts)
+nmap -iL live-hosts.txt --script vuln -oN vuln-scan.txt

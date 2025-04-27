@@ -1,0 +1,19 @@
+------------------------------
+Subdomain attack surface scan 
+------------------------------
+
+# 1. Passive Reconnaissance (no noise, stealthy subdomain discovery)
+amass enum -passive -d example.com -o passive-results.txt
+
+# 2. Active Enumeration (brute force more hidden subdomains)
+amass enum -active -brute -d example.com -o active-results.txt
+
+# 3. Save everything into a local database for tracking
+amass db -dir amass_db -d example.com -import passive-results.txt
+amass db -dir amass_db -d example.com -import active-results.txt
+
+# 4. Visualize relationships between discovered domains
+amass viz -d3 -dir amass_db/
+
+# 5. Export the final list for further scanning (like masscan or nmap)
+cat passive-results.txt active-results.txt | sort -u > final-subdomains.txt
