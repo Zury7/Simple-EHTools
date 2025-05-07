@@ -1,0 +1,11 @@
+# =======================
+# 5. QuasarRAT
+# Purpose: Create a Windows RAT payload and listen for connections via GUI
+# =======================
+# Step-by-step (no CLI):
+# 1. Download and launch QuasarRAT GUI
+# 2. Click "Builder" to create payload:
+#    - Set your IP and Port
+#    - Choose .exe format
+#    - Set encryption key
+# 3. Save and run server to wait for victim connection
