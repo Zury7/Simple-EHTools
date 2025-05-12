@@ -1,0 +1,16 @@
+# ===================== RUSTSCAN =====================
+
+# Scan the top 1000 ports on a target IP quickly and output results to terminal
+rustscan -a 10.10.10.10
+
+# Scan all 65535 TCP ports
+rustscan -a 10.10.10.10 -r 1-65535
+
+# Use a specific Nmap command after discovering open ports (e.g., for service/version detection)
+rustscan -a 10.10.10.10 -- -sV -sC
+
+# Save output to a file (use tee to also print to terminal)
+rustscan -a 10.10.10.10 -- -sV -sC | tee rustscan_output.txt
+
+# Scan multiple IPs listed in a file (e.g., targets.txt)
+for ip in $(cat targets.txt); do rustscan -a $ip -- -sV -sC | tee rustscan_$ip.txt; done

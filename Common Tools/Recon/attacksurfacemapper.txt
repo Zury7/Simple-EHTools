@@ -1,0 +1,16 @@
+# ===================== ATTACK SURFACE MAPPER (ASM) =====================
+
+# Run ASM with a domain (e.g., example.com) to discover subdomains and IPs
+python3 asm.py -t example.com
+
+# Save the output to a file
+python3 asm.py -t example.com -o output.txt
+
+# Run ASM with specific recon modules only (e.g., subdomain and ip resolution)
+python3 asm.py -t example.com -m subdomains,ips
+
+# Use a custom wordlist for subdomain enumeration
+python3 asm.py -t example.com -w /path/to/wordlist.txt
+
+# Add verbose mode for detailed processing info
+python3 asm.py -t example.com -v

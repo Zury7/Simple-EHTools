@@ -1,0 +1,16 @@
+# ===================== CLOUD ENUM =====================
+
+# Run CloudEnum with default providers (AWS, Azure, GCP, DigitalOcean, etc.)
+python3 cloud_enum.py -k yourkeyword
+
+# Run CloudEnum and save the output to a file
+python3 cloud_enum.py -k yourkeyword -o output.txt
+
+# Specify cloud providers to limit enumeration (e.g., AWS only)
+python3 cloud_enum.py -k yourkeyword -p aws
+
+# Add verbose output to show each request/result
+python3 cloud_enum.py -k yourkeyword -v
+
+# Use a custom wordlist for bucket name permutations
+python3 cloud_enum.py -k yourkeyword -w /path/to/wordlist.txt

@@ -1,0 +1,12 @@
+# ===================== DNSDUMPSTER =====================
+
+# Note: DNSDumpster has a web interface, but this uses a Python API wrapper (e.g., dnsdumpster.py)
+
+# Basic usage with Python wrapper to enumerate DNS records for a domain
+python3 dnsdumpster.py example.com
+
+# Save the output to a file
+python3 dnsdumpster.py example.com > dnsdumpster_output.txt
+
+# If using requests + BeautifulSoup based scripts, ensure captcha handling is coded or use API if available
+# Web: https://dnsdumpster.com (manually paste the domain and download results)

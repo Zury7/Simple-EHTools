@@ -1,0 +1,19 @@
+# ===================== AUTORECON =====================
+
+# Run autorecon on a single IP (default TCP scan and enumeration)
+autorecon 10.10.10.10
+
+# Run autorecon with a custom output directory
+autorecon -o /path/to/output 10.10.10.10
+
+# Run on multiple targets listed in a file
+autorecon -t targets.txt
+
+# Exclude specific categories (e.g., UDP or brute force)
+autorecon --exclude "brute,udp" 10.10.10.10
+
+# Run only specific categories (e.g., only nmap and gobuster)
+autorecon --only "nmap,gobuster" 10.10.10.10
+
+# Use a custom wordlist for gobuster
+autorecon --wordlist-dir /path/to/wordlists 10.10.10.10
