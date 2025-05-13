@@ -1,0 +1,13 @@
+==============================
+Hekatomb
+==============================
+
+# Hekatomb is a post-exploitation credential dumping tool
+
+python3 hekatomb.py --module sekurlsa      # Dumps logon session credentials from memory (similar to Mimikatz's sekurlsa)
+python3 hekatomb.py --module lsadump       # Dumps secrets from the Local Security Authority (LSA)
+python3 hekatomb.py --module samdump       # Dumps hashes from the SAM database
+python3 hekatomb.py --module logonpasswords# Displays cached login credentials
+python3 hekatomb.py --module lsa           # Extracts LSA secrets (similar to secretsdump)
+
+python3 hekatomb.py --help                 # Shows available modules and usage options

