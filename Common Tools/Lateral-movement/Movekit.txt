@@ -1,0 +1,13 @@
+# ==========================
+# Movekit (Android malware analysis / forensic tool)
+# ==========================
+
+movekit list            # Lists available devices or APKs
+movekit install <apk>   # Installs an APK on connected device/emulator
+movekit uninstall <pkg> # Uninstalls an app by package name
+movekit pull <src> <dst> # Pulls file from device to host
+movekit push <src> <dst> # Pushes file from host to device
+movekit shell           # Opens interactive shell on target device
+movekit analyze <apk>   # Analyzes APK statically
+movekit run             # Starts interactive session
+movekit help            # Lists all available commands

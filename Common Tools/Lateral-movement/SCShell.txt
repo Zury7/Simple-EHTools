@@ -1,0 +1,15 @@
+# ==========================
+# SC Shell (Windows Service Control)
+# ==========================
+
+sc query                # Lists all services
+sc queryex <service>    # Shows extended info of a specific service
+sc start <service>      # Starts a service
+sc stop <service>       # Stops a service
+sc pause <service>      # Pauses a service
+sc continue <service>   # Resumes a paused service
+sc create <name> binPath= "<path>" # Creates a new service
+sc delete <service>     # Deletes a service
+sc config <service> obj= "<account>" password= "<pwd>" # Changes service configuration
+sc qc <service>         # Queries service configuration
+sc failure <service> reset= 0 actions= restart/5000 # Configures recovery actions
