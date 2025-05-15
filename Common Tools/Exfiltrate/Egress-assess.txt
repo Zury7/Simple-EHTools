@@ -1,0 +1,21 @@
+# ==========================
+# Egress-Assess (Tool to test outbound traffic restrictions)
+# ==========================
+
+# Run server on attacker's machine (listener)
+python egress-assess.py --server --proto tcp --lport 4444             # TCP listener
+python egress-assess.py --server --proto udp --lport 4444             # UDP listener
+python egress-assess.py --server --proto http --lport 80              # HTTP listener
+python egress-assess.py --server --proto https --lport 443            # HTTPS listener
+
+# Run client on internal machine (tester)
+python egress-assess.py --client --proto tcp --rhost <attacker_ip> --rport 4444 # TCP test
+python egress-assess.py --client --proto udp --rhost <attacker_ip> --rport 4444 # UDP test
+python egress-assess.py --client --proto http --rhost <attacker_ip> --rport 80  # HTTP test
+python egress-assess.py --client --proto https --rhost <attacker_ip> --rport 443 # HTTPS test
+
+# View available protocols
+python egress-assess.py --list-protos
+
+# View help
+python egress-assess.py -h

