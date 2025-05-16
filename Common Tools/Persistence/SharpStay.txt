@@ -1,0 +1,12 @@
+# ================= SharpStay =================
+# Install persistence via Registry Run key
+SharpStay.exe --method registry --name MyApp --path "C:\Tools\backdoor.exe"
+
+# Install persistence via Startup folder
+SharpStay.exe --method startup --path "C:\Tools\backdoor.exe"
+
+# Install scheduled task-based persistence
+SharpStay.exe --method schtasks --name UpdateCheck --path "C:\Tools\update.exe"
+
+# Remove installed persistence entry
+SharpStay.exe --remove --method registry --name MyApp
