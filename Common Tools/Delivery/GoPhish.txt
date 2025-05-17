@@ -1,0 +1,14 @@
+# ================= GoPhish =================
+# Download and run GoPhish
+wget https://github.com/gophish/gophish/releases/download/v0.x.x/gophish-v0.x.x-linux-64bit.zip
+unzip gophish-v0.x.x-linux-64bit.zip
+cd gophish
+./gophish
+
+# Default web interfaces:
+# Admin UI: https://127.0.0.1:3333
+# Campaigns: http://127.0.0.1:80
+
+# Login default creds
+# Email: admin@gophish.io
+# Pass: gophish

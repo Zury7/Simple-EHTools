@@ -1,0 +1,15 @@
+# ================= PwnAuth =================
+# Clone the repo
+git clone https://github.com/fireeye/PwnAuth.git
+cd PwnAuth
+
+# Install requirements
+pip install -r requirements.txt
+
+# Run the backend
+python manage.py runserver
+
+# Open web interface
+# http://127.0.0.1:8000
+
+# Add new phishing campaign or auth flow from UI

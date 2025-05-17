@@ -1,0 +1,16 @@
+# ================= O365AttackToolkit =================
+# Clone the repository
+git clone https://github.com/Raikia/O365-attack-toolkit.git
+cd O365-attack-toolkit
+
+# Launch the toolkit (interactive)
+python3 O365AttackToolkit.py
+
+# Use password spray mode
+python3 O365AttackToolkit.py --spray --username-list users.txt --password Winter2024
+
+# Check valid O365 users
+python3 O365AttackToolkit.py --validate --username-list users.txt
+
+# Attempt login with MFA check
+python3 O365AttackToolkit.py --mfa-check --username user@domain.com

