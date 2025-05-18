@@ -1,0 +1,7 @@
+# ================= Psudohash =================
+# Clone the repo
+git clone https://github.com/NullArray/Psudohash.git
+cd Psudohash
+
+# Generate password hash list using company naming conventions
+python3 psudohash.py -d company.com -o psudohash.txt

@@ -1,0 +1,10 @@
+# ================= O365Recon =================
+# Clone the repo
+git clone https://github.com/nyxgeek/o365recon.git
+cd o365recon
+
+# Enumerate valid Office365 emails
+python3 o365recon.py -e users.txt
+
+# Output results to file
+python3 o365recon.py -e users.txt -o valid_users.txt

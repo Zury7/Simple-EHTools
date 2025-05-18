@@ -1,0 +1,10 @@
+# ================= TheSprayer =================
+# Clone the repo
+git clone https://github.com/3ndG4me/The-Sprayer.git
+cd The-Sprayer
+
+# Basic spray example
+python3 TheSprayer.py -u users.txt -p Password123 -d internal.local -t rdp
+
+# Spray multiple services
+python3 TheSprayer.py -u users.txt -p Password123 -d corp.local -t owa,rdp,smb

